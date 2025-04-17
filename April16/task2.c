@@ -15,6 +15,7 @@ void FindAndPrint(struct Car cars[],int size){
         if(cars[i].year>cars[i2].year){
                     i2=i;
         }
+    }
         printf("Car with lowest price");
         printf("Brand: %s\n",cars[i1].brand);
         printf("Model: %s\n",cars[i1].model);
@@ -26,7 +27,6 @@ void FindAndPrint(struct Car cars[],int size){
         printf("Model: %s\n", cars[i2].model);
         printf("Year: %d\n", cars[i2].year);
         printf("Price: %.2f\n", cars[i2].price);
-        }
 }int main(){
     struct Car cars[3];
     for(int i=0;i<3;++i){
