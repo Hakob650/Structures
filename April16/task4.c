@@ -1,31 +1,35 @@
 #include <stdio.h>
-struct Book {
-	char title[50];
-	char author[30];
-	int year;
+enum Categories {
+        ELECTRONICS,
+        FOOD,
+        CLOTHING,
+};
+struct Product {
+        char name[20];
+        enum Categories category;
+        float price;
 };
 int main(){
-	struct Book books[4];
-	int oldest=0;
-	for(int i=0;i<4;++i){
-		printf("\nEnter details of Book\n");
-		printf("Title: ");
-		scanf("%s",books[i].title);
-		printf("Author: ");
-		scanf("%s",books[i].author);
-		printf("Year: ");
-		scanf("%d",&books[i].year);
-	}
-	for(int i=1;i<4;++i){
-		if(books[i].year<books[oldest].year){
-			oldest=i;
-		}
-	}
-	printf("\nOldest Book:\n");
-	printf("Title: %s\n",books[oldest].title);
-	printf("Author: %s\n",books[oldest].author);
-	printf("Year: %d\n",books[oldest].year);
-	return 0;
+        struct Product products[3];
+        for(int i=0;i<3;++i){
+                int input;
+                printf("\nEnter details for product %d:\n",i+1);
+                printf("Name: ");
+                scanf("%s",products[i].name);
+                printf("Category(0: ELECTRONICS,1: FOOD,2: CLOTHING");
+                scanf("%d",&input);
+                products[i].category=(enum Categories)input;
+                printf("Price: ");
+                scanf("%f",&products[i].price);
+ }
+                printf("\nProducts of FOOD category:\n");
+        	for(int i=0;i<3;++i){
+                if(products[i].category==FOOD){
+                        printf("Name: %s\n",products[i].name);
+                        printf("Price: %.2f\n",products[i].price);
+                }
+        }return 0;
 }
+
 
 
